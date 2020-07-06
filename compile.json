@@ -1,0 +1,58 @@
+{
+  "$schema": "https://qooxdoo.org/schema/compile-1-0-0.json",
+  "babel": {
+    "plugins": {
+      "@babel/plugin-proposal-optional-chaining": true
+    },
+    "environment": {
+      "qx.debug.ui.queue": false
+    },
+    "options": {
+      "targets": {
+        "chrome": "49",
+        "ie": "9",
+        "edge": "17",
+        "firefox": "52",
+        "safari": "10"
+      }
+    }
+  },
+
+  "targets": [
+    {
+      "type": "source",
+      "outputPath": "compiled/source",
+      "environment": {
+        "qx.debug.ui.queue": false
+      },
+      "bundle": {
+        "include": "qx.*"
+      }
+    },
+    {
+      "type": "build",
+      "outputPath": "compiled/build",
+      "environment": {
+        "qx.debug": false,
+        "qx.debug.ui.queue": false
+      },
+      "minify": "off"
+    }
+  ],
+  "defaultTarget": "source",
+  "locales": ["fr"],
+  "environment": {
+      "qx.icontheme": "Tango"
+  },
+  "applications": [
+    {
+      "class": "myapp.Application",
+      "theme": "myapp.theme.Theme",
+      "name": "myapp",
+      "bootPath": "source/boot"
+    }
+  ],
+  "ignores": [
+    "TestScript"
+  ]
+}
